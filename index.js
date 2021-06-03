@@ -2,7 +2,7 @@ const express = require('express')
 const hbs = require('hbs')
 const routes = require('./routes/routes')
 const path = require('path')
-const app = express()
+const app = express() // const app = express.createWebServerApplication()
 const PORT = 3000
 
 app.set('view engine', hbs)
