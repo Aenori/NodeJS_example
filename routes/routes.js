@@ -9,9 +9,11 @@ router.get('/dependencies', appController.dependencies)
 router.get('/minimumSecure', appController.minimumSecurePage)
 router.get('/latestReleases', appController.latestReleasesPage)
 
+
 const formationRouter = express.Router({mergeParams: true})
 
 formationRouter.get('/', formationController.getAllFormations)
+formationRouter.get('/', formationController.bonjour)
 // NRO-example : le \d+ est une expression régulière (regexp pour les intimes)
 //   dans le cas présent la route n'acceptera que des nombres 
 formationRouter.get('/:formationId(\\d+)/', formationController.getFormation)
