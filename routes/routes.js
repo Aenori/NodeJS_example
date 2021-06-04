@@ -11,7 +11,7 @@ router.get('/latestReleases', appController.latestReleasesPage)
 
 // TP
 router.get('/helloWorld', appController.helloWorld)
-formationRouter.get('/', formationController.bonjour)
+formationRouter.get('/bonjour', formationController.bonjour)
 
 const formationRouter = express.Router({mergeParams: true})
 
