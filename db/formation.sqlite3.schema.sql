@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS "formations" (
+	"id"	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"formateurId"	INTEGER,
+	"date"	TEXT,
+	"sujet"	TEXT
+);
+
+CREATE TABLE sqlite_sequence(name,seq);
+
+CREATE TABLE IF NOT EXISTS "formateurs" (
+	"id"	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"nom"	TEXT NOT NULL
+);
+
