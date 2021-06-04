@@ -7,6 +7,9 @@ exports.getAllFormations = async (req, res) => {
   
 }
 
+// NRO-example : un petit example avec les deux types de paramêtres :
+//   req.params.formationId => pointe vers une composante de l'url (le :formationId)
+//   req.query.id => pointe vers le paramêtre plus classique ?id=
 exports.getFormation = async (req, res) => {
   dbService.getFormation(Number(req.params.formationId), (err, row) => {
     res.json({formation : row, queryParams : req.query.id })
