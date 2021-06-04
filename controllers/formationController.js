@@ -15,3 +15,7 @@ exports.getFormation = async (req, res) => {
     res.json({formation : row, queryParams : req.query.id })
   });
 }
+
+exports.bonjour = (req, res) => {
+  res.
+}
