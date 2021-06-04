@@ -16,9 +16,13 @@ exports.getFormation = async (req, res) => {
   });
 }
 
-//TP
+//Exo1
 exports.bonjour = (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'}); 
   res.end(`Bonjour ${req.query.nom} !`);
 }
-
+//Exo2
+exports.ascensuer = (req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'}); 
+  res.end(`Bienvenue au ${req.params.etageId} etage !`);
+}
