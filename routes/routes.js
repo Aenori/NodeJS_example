@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const appController = require('../controllers/appController.js')
 const formationController = require('../controllers/formationController.js')
+const formateurController = require('../controllers/formateurController.js')
 
 // Application Routes
 router.get('/', appController.home)
@@ -29,6 +30,10 @@ router.get('/helloWorld', appController.helloWorld)
 router.get('/bonjour', formationController.bonjour)
 //Exo2 et 3
 router.get('/ascenseur/:nb(\\d+)/etage', formationController.getEtage) 
-
+//Exo4
+const formateurRouter = express.Router({mergeParams: true})
+formateurRouter.get('/', formateurController.getAllFormateurs)
+formateurRouter.get('/:formateurId(\\d+)/', formateurController.getFormateur)
+router.use('/formateur', formateurRouter)
 
 module.exports = router
