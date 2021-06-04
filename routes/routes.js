@@ -14,7 +14,7 @@ router.get('/helloWorld', appController.helloWorld)
 //Exo1
 router.get('/bonjour', formationController.bonjour)
 //Exo2
-formationRouter.get('/:etageId(\\d+)/etage', formationController.getAscenseur)
+formationRouter.get('/:etageId(\\d+)/etage', formationController.ascenseur)
 router.use('/ascenseur', formationRouter)
 
 const formationRouter = express.Router({mergeParams: true})
