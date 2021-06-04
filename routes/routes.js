@@ -27,9 +27,8 @@ router.get('/api/latest-releases', appController.latestReleases)
 router.get('/helloWorld', appController.helloWorld)
 //Exo1
 router.get('/bonjour', formationController.bonjour)
-//Exo2
+//Exo2 et 3
 router.get('/ascenseur/:nb(\\d+)/etage', formationController.getEtage) 
-//Exo3
-router.get('/ascenseur2/:nb2(\\d+)/etage', formationController.getEtage2)
+
 
 module.exports = router
