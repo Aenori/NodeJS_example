@@ -28,7 +28,6 @@ router.get('/helloWorld', appController.helloWorld)
 //Exo1
 router.get('/bonjour', formationController.bonjour)
 //Exo2
-formationRouter.get('/:etageId(\\d+)/etage', formationController.getEtage)
-router.use('/ascenseur', formationRouter)
+router.get('/ascenseur/:etageId(\\d+)/etage', formationController.getEtage) 
 
 module.exports = router
