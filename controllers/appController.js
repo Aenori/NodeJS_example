@@ -69,6 +69,11 @@ exports.bonjour = (req, res) => {
         res.end('Bonjour '+req.query.nom);
 }
 
+exports.getEtageAscenceur = (req, res) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end("Bienvenue au "+Number(req.params.nb)+"eme etage !");
+}
+
 exports.home = (req, res) => {
   res.render('home.hbs')
 }

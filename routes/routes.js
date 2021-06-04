@@ -9,7 +9,9 @@ router.get('/dependencies', appController.dependencies)
 router.get('/minimumSecure', appController.minimumSecurePage)
 router.get('/latestReleases', appController.latestReleasesPage)
 
-router.get('/bonjour', appController.bonjour)
+//router.get('/bonjour', appController.bonjour)
+
+router.get('/ascenceur/:nb(\\d+)/etage', appController.getEtageAscenceur)
 
 const formationRouter = express.Router({mergeParams: true})
 

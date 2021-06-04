@@ -4,7 +4,6 @@ exports.getAllFormations = async (req, res) => {
   dbService.getAllFormations((err, rows) => {
     res.render('all-formations.hbs', { formations : rows } )
   });
-  
 }
 
 // NRO-example : un petit example avec les deux types de paramêtres :
