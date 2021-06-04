@@ -9,6 +9,6 @@ exports.getAllFormations = async (req, res) => {
 
 exports.getFormation = async (req, res) => {
   dbService.getFormation(Number(req.params.formationId), (err, row) => {
-    res.json({formation : row})
+    res.json({formation : row, queryParams : req.query.id })
   });
 }
