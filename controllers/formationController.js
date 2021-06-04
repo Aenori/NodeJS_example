@@ -29,8 +29,8 @@ exports.getEtage = (req, res) => {
 //Exo3
 exports.getEtage2 = (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'}); 
-  if(req.params.nb = 0)
+  if(req.params.nb2 = 0)
   res.end("Bienvenue au RDC !")
   else
-  res.end(`Bienvenue au ${req.params.nb} eme etage !`);
+  res.end(`Bienvenue au ${req.params.nb2} eme etage !`);
 }
