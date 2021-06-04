@@ -63,6 +63,12 @@ exports.latestReleases = async (req, res) => {
   }
 }
 
+
+exports.bonjour = (req, res) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Bonjour '+req.query.nom);
+}
+
 exports.home = (req, res) => {
   res.render('home.hbs')
 }
