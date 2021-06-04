@@ -27,3 +27,18 @@ exports.getFormateur = async (req, res) => {
     res.json({formateur : row, queryParams : req.query.id })
   });
 }
+/*
+// affichage json
+exports.getFormationByFormateurId = async (req, res) => {
+  dbService.getFormationByFormateurId(Number(req.params.formateurId), (err, row) => {
+    res.json({formateur : row })
+  });
+}
+*/
+
+// affichage Html
+exports.getFormationByFormateurId = async (req, res) => {
+  dbService.getFormationByFormateurId(Number(req.params.formateurId), (err, rows) => {
+    res.render('all-formations.hbs', { formations : rows } )
+  });
+}

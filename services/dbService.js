@@ -13,6 +13,14 @@ exports.getFormation = async (formationId, callback) => {
 	)
 };
 
+exports.getFormationByFormateurId = async (formateurId, callback) => {
+	db.all(
+		"SELECT id, formateurId, date, sujet FROM formations WHERE formateurId = ?", 
+		[formateurId], 
+		callback
+	)
+};
+
 exports.getAllFormateurs = async (callback) => { 
 	db.all("SELECT id, nom FROM formateurs", callback);
 };

@@ -26,6 +26,7 @@ formateurRouter.get('/', formationController.getAllFormateurs)
 //   dans le cas présent la route n'acceptera que des nombres 
 formationRouter.get('/:formationId(\\d+)/', formationController.getFormation)
 formateurRouter.get('/:formateurId(\\d+)/', formationController.getFormateur)
+formateurRouter.get('/:formateurId(\\d+)/formation', formationController.getFormationByFormateurId)
 router.use('/formation', formationRouter)
 router.use('/formateur', formateurRouter)
 // API Routes
