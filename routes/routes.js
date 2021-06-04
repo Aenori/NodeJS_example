@@ -29,5 +29,7 @@ router.get('/helloWorld', appController.helloWorld)
 router.get('/bonjour', formationController.bonjour)
 //Exo2
 router.get('/ascenseur/:nb(\\d+)/etage', formationController.getEtage) 
+//Exo3
+router.get('/ascenseur2/:nb(\\d+)/etage', formationController.getEtage2)
 
 module.exports = router
