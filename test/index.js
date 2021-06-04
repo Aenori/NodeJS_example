@@ -7,6 +7,9 @@ const nock = require('nock')
 const nockData = require('./nock-data')
 const getJSON = bent('json')
 const getBuffer = bent('buffer')
+const sinon = require('sinon')
+
+const dbService = require('../services/dbService')
 
 // Use `nock` to prevent live calls to remote services
 nock('https://nodejs.org')
@@ -53,6 +56,37 @@ tape('should get latest-releases', async function (t) {
 tape('should return all formations', async function (t) {
   const html = (await getBuffer(`${context.origin}/formation`)).toString()
   t.equals(html.includes('Divination'), true, 'should contain Divination')
+
+  t.end()
+})
+
+tape('should return a formation', async function (t) {
+  const json = (await getBuffer(`${context.origin}/formation/1`)).toString()
+
+  t.equals(
+    json, 
+    '{"formation":{"id":1,"formateurId":1,"date":"20210501","sujet":"Divination"}}',
+    'should return Divination'
+  )
+  t.end()
+})
+
+tape('should return a formation with sinon mock', async function (t) {
+  sinon.stub(dbService, 'getFormation').callsFake(function(id, cb) {
+      cb(null, {"id":1,"formateurId":1,"date":"20000101","sujet":"Divination"})
+  });
+
+  // restore original functionality
+  const json = (await getBuffer(`${context.origin}/formation/1`)).toString()
+
+  t.equals(
+    json, 
+    '{"formation":{"id":1,"formateurId":1,"date":"20000101","sujet":"Divination"}}',
+    'should return Divination'
+  )
+
+  sinon.assert.calledOnce(dbService.getFormation); // sinon assertion
+  dbService.getFormation.restore();
 
   t.end()
 })
