@@ -32,9 +32,9 @@ router.get('/bonjour', formationController.bonjour)
 router.get('/ascenseur/:nb(\\d+)/etage', formationController.getEtage) 
 //Exo4
 const formateurRouter = express.Router({mergeParams: true})
+router.use('/formateur', formateurRouter)
 formateurRouter.get('/', formateurController.getAllFormateurs)
 formateurRouter.get('/:formateurId(\\d+)/', formateurController.getFormateur)
-router.use('/formateur', formateurRouter)
-router.get('/:formateurId(\\d+)/formations', formateurController.getFormationByFormateur)
+formateurRouter.get('/:formateurId(\\d+)/formation', formateurController.getFormationByFormateur)
 
 module.exports = router

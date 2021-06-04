@@ -8,8 +8,13 @@ exports.getAllFormateurs = async (req, res) => {
 }
 
 exports.getFormateur = async (req, res) => {
-  dbService.getFormation(Number(req.params.formateurId), (err, row) => {
+  dbService.getFormateur(Number(req.params.formateurId), (err, row) => {
     res.json({formateur : row, queryParams : req.query.id })
   });
 }
 
+exports.getFormationByFormateur = async (req, res) => {
+  dbService.getFormationByFormateur(Number(req.params.formateurId), (err, row) => {
+    res.json({formation : row}) //row est la réponse associée à la requête dsService
+  });
+}
