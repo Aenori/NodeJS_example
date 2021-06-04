@@ -9,14 +9,6 @@ router.get('/dependencies', appController.dependencies)
 router.get('/minimumSecure', appController.minimumSecurePage)
 router.get('/latestReleases', appController.latestReleasesPage)
 
-// TP
-router.get('/helloWorld', appController.helloWorld)
-//Exo1
-router.get('/bonjour', formationController.bonjour)
-//Exo2
-formationRouter.get('/:etageId(\\d+)/etage', formationController.ascenseur)
-router.use('/ascenseur', formationRouter)
-
 const formationRouter = express.Router({mergeParams: true})
 
 formationRouter.get('/', formationController.getAllFormations)
@@ -30,5 +22,13 @@ router.use('/formation', formationRouter)
 // API Routes
 router.get('/api/minimum-secure', appController.minimumSecure)
 router.get('/api/latest-releases', appController.latestReleases)
+
+// TP
+router.get('/helloWorld', appController.helloWorld)
+//Exo1
+router.get('/bonjour', formationController.bonjour)
+//Exo2
+formationRouter.get('/:etageId(\\d+)/etage', formationController.getEtage)
+router.use('/ascenseur', formationRouter)
 
 module.exports = router

@@ -22,7 +22,7 @@ exports.bonjour = (req, res) => {
   res.end(`Bonjour ${req.query.nom} !`);
 }
 //Exo2
-exports.ascenseur = (req, res) => {
+exports.getEtage = (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'}); 
-  res.end(`Bienvenue au ${req.params.etageId} etage !`);
+  res.end(`Bienvenue au ${req.params.etageId} eme etage !`);
 }
