@@ -17,13 +17,17 @@ router.get('/ascenceur2/:nb(\\d+)/etage', appController.getEtageAscenceur2)
 
 const formationRouter = express.Router({mergeParams: true})
 
+const formateurRouter = express.Router({mergeParams: true})
+
 formationRouter.get('/', formationController.getAllFormations)
+
+formateurRouter.get('/', formationController.getAllFormateurs)
 // NRO-example : le \d+ est une expression régulière (regexp pour les intimes)
 //   dans le cas présent la route n'acceptera que des nombres 
 formationRouter.get('/:formationId(\\d+)/', formationController.getFormation)
 
 router.use('/formation', formationRouter)
-
+router.use('/formateur', formateurRouter)
 // API Routes
 router.get('/api/minimum-secure', appController.minimumSecure)
 router.get('/api/latest-releases', appController.latestReleases)

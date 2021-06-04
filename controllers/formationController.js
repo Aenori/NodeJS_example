@@ -6,6 +6,12 @@ exports.getAllFormations = async (req, res) => {
   });
 }
 
+exports.getAllFormateurs = async (req, res) => {
+  dbService.getAllFormateurs((err, rows) => {
+    res.render('all-formateurs.hbs', { formateurs : rows } )
+  });
+}
+
 // NRO-example : un petit example avec les deux types de paramêtres :
 //   req.params.formationId => pointe vers une composante de l'url (le :formationId)
 //   req.query.id => pointe vers le paramêtre plus classique ?id=
