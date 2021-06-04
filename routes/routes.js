@@ -35,5 +35,6 @@ const formateurRouter = express.Router({mergeParams: true})
 formateurRouter.get('/', formateurController.getAllFormateurs)
 formateurRouter.get('/:formateurId(\\d+)/', formateurController.getFormateur)
 router.use('/formateur', formateurRouter)
+router.get('/:formateurId(\\d+)/formations', formateurController.getFormationByFormateur)
 
 module.exports = router
