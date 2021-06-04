@@ -50,6 +50,13 @@ tape('should get latest-releases', async function (t) {
   t.end()
 })
 
+tape('should return all formations', async function (t) {
+  const html = (await getBuffer(`${context.origin}/formation`)).toString()
+  t.equals(html.includes('Divination'), true, 'should contain Divination')
+
+  t.end()
+})
+
 tape('teardown', function (t) {
   nock.cleanAll()
   context.server.close()

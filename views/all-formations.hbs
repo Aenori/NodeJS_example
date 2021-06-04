@@ -1,0 +1,13 @@
+<h2 class="landing landing__api-title">
+    All formations
+</h2>
+
+<div class="landing__hero">
+    <ul class="list">
+        {{#formations}}
+        <li>
+            {{id}} {{formateurId}} {{sujet}} {{date}}
+        </li>
+        {{/formations}}
+    </ul>
+</div>
