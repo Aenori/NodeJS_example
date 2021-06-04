@@ -66,3 +66,8 @@ exports.latestReleases = async (req, res) => {
 exports.home = (req, res) => {
   res.render('home.hbs')
 }
+exports.helloWorld = (req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'}); //200 statut de la requete
+  res.end('Hello World!');
+}
+

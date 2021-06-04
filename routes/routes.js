@@ -8,6 +8,7 @@ router.get('/', appController.home)
 router.get('/dependencies', appController.dependencies)
 router.get('/minimumSecure', appController.minimumSecurePage)
 router.get('/latestReleases', appController.latestReleasesPage)
+router.get('/helloWorld', appController.helloWorld)
 
 
 const formationRouter = express.Router({mergeParams: true})

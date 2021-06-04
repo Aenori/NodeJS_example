@@ -5,6 +5,7 @@ const getPort = require('get-port')
 const server = require('../index')
 const nock = require('nock')
 const nockData = require('./nock-data')
+const { text } = require('express')
 const getJSON = bent('json')
 const getBuffer = bent('buffer')
 
@@ -12,7 +13,7 @@ const getBuffer = bent('buffer')
 nock('https://nodejs.org')
   .persist(true)
   .get('/dist/index.json')
-  .reply(200, nockData)
+  //.reply(200, nockData)
 
 const context = {}
 
@@ -53,7 +54,12 @@ tape('should get latest-releases', async function (t) {
 tape('should return all formations', async function (t) {
   const html = (await getBuffer(`${context.origin}/formation`)).toString()
   t.equals(html.includes('Divination'), true, 'should contain Divination')
+  t.end()
+})
 
+tape('should say hello world', async function (t) {
+  const plainText = (await getBuffer(`${context.origin}/helloWorld`)).toString()
+  t.equals(plainText.includes('Hello World!'), true, 'should contain Hello World!')
   t.end()
 })
 
