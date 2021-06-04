@@ -57,6 +57,24 @@ tape('should return all formations', async function (t) {
   t.end()
 })
 
+tape('should say bonjour', async function (t) {
+  let html = (await getBuffer(`${context.origin}/bonjour?nom=Dupont`)).toString()
+  t.equals(html.includes('Bonjour Dupont'), true, 'should say bonjour to Dupont')
+  html = (await getBuffer(`${context.origin}/bonjour?nom=Martin`)).toString()
+  t.equals(html.includes('Bonjour Martin'), true, 'should say bonjour to Martin')
+
+  t.end()
+})
+
+tape('should say bienvenue a l etage', async function (t) {
+  let html = (await getBuffer(`${context.origin}/ascenceur/1/etage`)).toString()
+  t.equals(html.includes('Bienvenue au 1 eme etage !'), true, 'should go to first floor')
+  html = (await getBuffer(`${context.origin}/ascenceur/0/etage`)).toString()
+  t.equals(html.includes('Bienvenue au 0 eme etage !'), true, 'should go to 0 floor')
+
+  t.end()
+})
+
 tape('teardown', function (t) {
   nock.cleanAll()
   context.server.close()
