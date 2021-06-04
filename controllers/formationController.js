@@ -24,5 +24,5 @@ exports.bonjour = (req, res) => {
 //Exo2
 exports.getEtage = (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/plain'}); 
-  res.end(`Bienvenue au ${req.params.etageId} eme etage !`);
+  res.end(`Bienvenue au ${req.params.nb} eme etage !`);
 }
