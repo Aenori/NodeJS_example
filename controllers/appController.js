@@ -74,6 +74,14 @@ exports.getEtageAscenceur = (req, res) => {
         res.end("Bienvenue au "+Number(req.params.nb)+"eme etage !");
 }
 
+exports.getEtageAscenceur2 = (req, res) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        if (Number(req.params.nb)==0)
+        res.end("Bienvenue au rdc !");
+        else
+        res.end("Bienvenue au "+Number(req.params.nb)+"eme etage !"); 
+}
+
 exports.home = (req, res) => {
   res.render('home.hbs')
 }
