@@ -25,7 +25,7 @@ formateurRouter.get('/', formationController.getAllFormateurs)
 // NRO-example : le \d+ est une expression régulière (regexp pour les intimes)
 //   dans le cas présent la route n'acceptera que des nombres 
 formationRouter.get('/:formationId(\\d+)/', formationController.getFormation)
-
+formateurRouter.get('/:formateurId(\\d+)/', formationController.getFormateur)
 router.use('/formation', formationRouter)
 router.use('/formateur', formateurRouter)
 // API Routes

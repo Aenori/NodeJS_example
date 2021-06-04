@@ -20,3 +20,10 @@ exports.getFormation = async (req, res) => {
     res.json({formation : row, queryParams : req.query.id })
   });
 }
+
+
+exports.getFormateur = async (req, res) => {
+  dbService.getFormateur(Number(req.params.formateurId), (err, row) => {
+    res.json({formateur : row, queryParams : req.query.id })
+  });
+}
