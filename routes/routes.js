@@ -27,6 +27,9 @@ formateurRouter.get('/', formationController.getAllFormateurs)
 formationRouter.get('/:formationId(\\d+)/', formationController.getFormation)
 formateurRouter.get('/:formateurId(\\d+)/', formationController.getFormateur)
 formateurRouter.get('/:formateurId(\\d+)/formation', formationController.getFormationByFormateurId)
+formateurRouter.get('/add', formationController.addFormateur)
+formateurRouter.get('/:formateurId(\\d+)/delete/', formationController.deleteFormateurById)
+
 router.use('/formation', formationRouter)
 router.use('/formateur', formateurRouter)
 // API Routes

@@ -42,3 +42,25 @@ exports.getFormationByFormateurId = async (req, res) => {
     res.render('all-formations.hbs', { formations : rows } )
   });
 }
+
+exports.addFormateur = async (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  dbService.addFormateur(req.query.nom,(err) => {
+    if (err) {
+      return res.end(err.message);
+    }
+    res.end(req.query.nom+' is added');
+  });
+}
+
+exports.deleteFormateurById = async (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  dbService.deleteFormateurById(Number(req.params.formateurId),(err) => {
+    if (err) {
+      res.end(err.message);
+      throw (err)
+    }
+    res.end( "The formateur with the id "+req.params.formateurId+' is deleted');
+  });
+}
+
