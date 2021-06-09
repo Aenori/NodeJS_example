@@ -60,17 +60,6 @@ tape('should return all formations', async function (t) {
   t.end()
 })
 
-tape('should return a formation', async function (t) {
-  const json = (await getBuffer(`${context.origin}/formation/1`)).toString()
-
-  t.equals(
-    json, 
-    '{"formation":{"id":1,"formateurId":1,"date":"20210501","sujet":"Divination"}}',
-    'should return Divination'
-  )
-  t.end()
-})
-
 tape('should return a formation with sinon mock', async function (t) {
   sinon.stub(dbService, 'getFormation').callsFake(function(id, cb) {
       cb(null, {"id":1,"formateurId":1,"date":"20000101","sujet":"Divination"})
@@ -85,9 +74,20 @@ tape('should return a formation with sinon mock', async function (t) {
     'should return Divination'
   )
 
-  sinon.assert.calledOnce(dbService.getFormation); // sinon assertion
+  sinon.assert.calledOnce(dbService.getFormation);
   dbService.getFormation.restore();
 
+  t.end()
+})
+
+tape('should return a formation', async function (t) {
+  const json = (await getBuffer(`${context.origin}/formation/1`)).toString()
+
+  t.equals(
+    json, 
+    '{"formation":{"id":1,"formateurId":1,"date":"20210501","sujet":"Divination"}}',
+    'should return Divination'
+  )
   t.end()
 })
 
