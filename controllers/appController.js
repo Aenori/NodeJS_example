@@ -66,3 +66,7 @@ exports.latestReleases = async (req, res) => {
 exports.home = (req, res) => {
   res.render('home.hbs');
 };
+
+exports.yodaChat = (req, res) => {
+  res.render('yodaChat.hbs');
+};

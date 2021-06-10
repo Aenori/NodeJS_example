@@ -5,6 +5,7 @@ const formationController = require('../controllers/formationController.js');
 
 // Application Routes
 router.get('/', appController.home);
+router.get('/yodaChat', appController.yodaChat);
 router.get('/dependencies', appController.dependencies);
 router.get('/minimumSecure', appController.minimumSecurePage);
 router.get('/latestReleases', appController.latestReleasesPage);

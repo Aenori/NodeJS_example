@@ -37,6 +37,14 @@ tape('should get dependencies', async function(t) {
   t.end();
 });
 
+tape('should get yoda chat', async function(t) {
+  const html = (await getBuffer(`${context.origin}/yodaChat`)).toString();
+  t.equals(html.includes('body'), true, 'should contain body');
+  t.equals(html.includes('socket.io'), true, 'should contain socket.io');
+
+  t.end();
+});
+
 tape('should get minimum secure versions', async function(t) {
   const result = await getJSON(`${context.origin}/api/minimum-secure`);
   t.equals(result.v14.version, 'v14.4.0', ' v14 version should match');
