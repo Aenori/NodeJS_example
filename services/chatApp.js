@@ -1,13 +1,11 @@
-const sqlite3 = require('sqlite3').verbose();
-
 const YODA_CITATIONS = [
   'Difficile à voir. Toujours en mouvement est l’avenir.',
   'Le côté obscur de la Force, redouter tu dois.',
   'Fais le ou ne le fais pas. Il n’y a pas d’essai.',
   'Bonnes relations avec les Wookies, j’entretiens.',
   'Un grand guerrier ? Personne par la guerre ne devient grand.',
-  "Un Jedi utilise la Force pour la connaissance et la défense," + 
-	' jamais pour l’attaque.',
+  'Un Jedi utilise la Force pour la connaissance et la défense,' +
+' jamais pour l’attaque.',
   'Quand 900 ans comme moi tu auras, moins en forme tu seras.',
   'Je ne peux rien lui apprendre, cet enfant n’a aucune patience.' +
     ' Trop de colère en lui, comme son père, il n’est pas prêt.',
@@ -34,12 +32,12 @@ exports.handleSocketIo = (io) => {
     console.log('a user connected');
 
     socket.on('chat message', (msg) => {
-        console.log('message: ' + msg);
-        socket.emit('Yoda message', {message: getYodaCitation()});
+      console.log('message: ' + msg);
+      socket.emit('Yoda message', {message: getYodaCitation()});
     });
 
     socket.on('disconnect', () => {
-    console.log('user disconnected');
+      console.log('user disconnected');
     });
   });
 };
