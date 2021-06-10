@@ -15,26 +15,19 @@
     <div class="landing__hero">
         <div class="container-row">
             <script src="/socket.io/socket.io.js"></script>
+            <script src="/js/chatAppClient.js"></script>
             <script>
-                var socket = io();
+                const socket = io();
 
-                var form = document.getElementById('yodaForm');
-                var input = document.getElementById('yodaChatInput');
-                var messages = document.getElementById('yodaMessages');
+                const form = document.getElementById('yodaForm');
+                const input = document.getElementById('yodaChatInput');
+                const messages = document.getElementById('yodaMessages');
 
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    if (input.value) {
-                        socket.emit('chat message', input.value);
-                        input.value = '';
-                    }
-                });
+                form.addEventListener('submit', (e) => handleSubmit(e, input));
 
                 socket.on('Yoda message', function(msg) {
-                    var item = document.createElement('li');
-                    item.textContent = msg['message'];
-                    messages.appendChild(item);
-                    window.scrollTo(0, document.body.scrollHeight);
+                  addYodaMessageToHTML(msg, messages);
+                  window.scrollTo(0, document.body.scrollHeight);
                 });
             </script>
         </div>

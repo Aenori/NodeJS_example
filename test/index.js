@@ -10,6 +10,7 @@ const getBuffer = bent('buffer');
 const sinon = require('sinon');
 
 const dbService = require('../services/dbService');
+// const chatAppClientTest = require('./public/js/chatAppClient');
 
 // Use `nock` to prevent live calls to remote services
 nock('https://nodejs.org')
@@ -103,6 +104,8 @@ tape('should return a formation', async function(t) {
   );
   t.end();
 });
+
+// chatAppClientTest.doTest();
 
 tape('teardown', function(t) {
   nock.cleanAll();
