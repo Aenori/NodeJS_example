@@ -16,6 +16,10 @@ function handleSubmit(event, input) {
  * @param {Object} messages : The HTML markup
  */
 function addYodaMessageToHTML(msg, messages) {
+  const itemUser = document.createElement('li');
+  itemUser.textContent = msg['user'];
+  messages.appendChild(itemUser);
+
   const item = document.createElement('li');
   item.textContent = msg['message'];
   messages.appendChild(item);

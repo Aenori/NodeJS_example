@@ -3,7 +3,8 @@ const hbs = require('hbs');
 const path = require('path');
 const http = require('http');
 
-const {Server} = require('socket.io');
+// const {Server} = require('socket.io');
+const socketIo = require('socket.io');
 
 const chatApp = require('./services/chatApp');
 const routes = require('./routes/routes');
@@ -12,7 +13,7 @@ const PORT = 3000;
 
 const app = express(); // const app = express.createWebServerApplication()
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new socketIo.Server(server);
 
 app.set('view engine', hbs);
 app.use('/', routes);
