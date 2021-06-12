@@ -1,8 +1,8 @@
 // with { "type": "module" } in your package.json
-import { createServer } from "http";
-import { io as Client } from "socket.io-client";
-import { Server } from "socket.io";
-import { assert } from "chai";
+// import { createServer } from "http";
+// import { io as Client } from "socket.io-client";
+// import { Server } from "socket.io";
+// import { assert } from "chai";
 
 // with { "type": "commonjs" } in your package.json
 // const { createServer } = require("http");
@@ -10,7 +10,7 @@ import { assert } from "chai";
 // const Client = require("socket.io-client");
 // const assert = require("chai").assert;
 
-describe("my awesome project", () => {
+/* describe("my awesome project", () => {
   let io, serverSocket, clientSocket;
 
   before((done) => {
@@ -48,4 +48,4 @@ describe("my awesome project", () => {
       done();
     });
   });
-});
+});*/
